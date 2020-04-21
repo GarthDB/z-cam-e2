@@ -1,0 +1,36 @@
+{
+  "name": "z-cam-e2",
+  "version": "1.0.0",
+  "description": "Wrapper functions for Z Cam e2 http api",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "format": "prettier --write src/* test/*",
+    "format:watch": "onchange 'src/**' 'test/**' -- prettier --write {{changed}}",
+    "test": "tap",
+    "test:watch": "tap -w",
+    "prepare": "npm run build",
+    "start": "npm run test:watch"
+  },
+  "keywords": [
+    "Z-Cam",
+    "e2",
+    "e2c"
+  ],
+  "author": "Garth Braithwaite <garthdb@gmail.com> (http://garthdb.com)",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "bent": "^7.3.2"
+  },
+  "devDependencies": {
+    "@types/ip": "^1.1.0",
+    "nock": "^12.0.3",
+    "nock-record": "^0.3.6",
+    "onchange": "^7.0.2",
+    "prettier": "^2.0.5",
+    "tap": "^14.10.7",
+    "ts-node": "^8.10.2",
+    "typedjson": "^1.5.1",
+    "typescript": "^3.9.5"
+  }
+}

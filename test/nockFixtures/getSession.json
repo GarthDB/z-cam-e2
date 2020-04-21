@@ -1,0 +1,27 @@
+[
+  {
+    "scope": "http://192.168.86.79:80",
+    "method": "GET",
+    "path": "/ctrl/session",
+    "body": "",
+    "status": 200,
+    "response": {
+      "code": 0,
+      "desc": "",
+      "msg": ""
+    },
+    "rawHeaders": [
+      "Content-Length",
+      "29",
+      "Cache-Control",
+      "no-cache, no-store, max-age=0, must-revalidate",
+      "Content-Type",
+      "application/json; charset=utf-8",
+      "Access-Control-Allow-Origin",
+      "*",
+      "Connection",
+      "close"
+    ],
+    "responseIsBinary": false
+  }
+]
