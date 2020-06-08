@@ -1,10 +1,20 @@
-import { EventEmitter } from "events";
+import { EventEmitter } from "eventemitter3";
 import { ZCamE2 } from "./types/ZCamE2";
 import bent from "bent";
 
-const getJSON = bent("json");
+const getBent = bent("GET", "string", 200, 409);
 
-export class ZCamE2API extends EventEmitter {
+export interface AtemEvents {
+  error: [string];
+  info: [string];
+  debug: [string];
+  connected: [];
+  disconnected: [];
+  stateChanged: [AtemState, string[]];
+  receivedCommands: [IDeserializedCommand[]];
+}
+
+export class ZCamE2API extends EventEmitter<AtemEvents> {
   public ip: string;
   /**
    * Creates an instance of ZCamE2API.
@@ -23,17 +33,18 @@ export class ZCamE2API extends EventEmitter {
    * @memberof ZCamE2API
    */
   public async getInfo(): Promise<ZCamE2> {
-    const result = await getJSON(`http://${this.ip}/info`);
+    const result = await getBent(`http://${this.ip}/info`);
+    const resultJSON = JSON.parse(result);
     const zCam: ZCamE2 = {
-      model: result.model,
-      number: Number(result.number),
-      sw: result.sw,
-      hw: result.hw,
-      mac: result.mac,
-      eth_ip: result.eth_ip,
-      sn: result.sn,
-      ble: result.ble,
-      bt_mac: result.bt_mac,
+      model: resultJSON.model,
+      number: Number(resultJSON.number),
+      sw: resultJSON.sw,
+      hw: resultJSON.hw,
+      mac: resultJSON.mac,
+      eth_ip: resultJSON.eth_ip,
+      sn: resultJSON.sn,
+      ble: resultJSON.ble,
+      bt_mac: resultJSON.bt_mac,
     };
     return zCam;
   }
@@ -46,7 +57,8 @@ export class ZCamE2API extends EventEmitter {
    * @memberof ZCamE2API
    */
   public async getSession(): Promise<any> {
-    const result = await getJSON(`http://${this.ip}/ctrl/session`);
+    const result = await getBent(`http://${this.ip}/ctrl/session`);
+
     return result;
   }
 }

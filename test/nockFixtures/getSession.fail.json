@@ -1,0 +1,17 @@
+[
+    {
+        "scope": "http://192.168.86.79:80",
+        "method": "GET",
+        "path": "/ctrl/session",
+        "body": "",
+        "status": 409,
+        "response": "",
+        "rawHeaders": [
+            "Content-Length",
+            "0",
+            "Connection",
+            "close"
+        ],
+        "responseIsBinary": false
+    }
+]
