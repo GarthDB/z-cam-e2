@@ -1,21 +1,15 @@
-import { EventEmitter } from "eventemitter3";
-import { ZCamE2 } from "./types/ZCamE2";
 import bent from "bent";
+import WebSocket from "isomorphic-ws";
 
-const getBent = bent("GET", "string", 200, 409);
+import { EventEmitter } from "events";
+import { ZCamE2 } from "./types/ZCamE2";
+import { FocusState } from "./state";
 
-export interface AtemEvents {
-  error: [string];
-  info: [string];
-  debug: [string];
-  connected: [];
-  disconnected: [];
-  stateChanged: [AtemState, string[]];
-  receivedCommands: [IDeserializedCommand[]];
-}
+const getBent = bent(200, 409);
 
-export class ZCamE2API extends EventEmitter<AtemEvents> {
+export class ZCamE2API extends EventEmitter {
   public ip: string;
+  private readonly ws: WebSocket;
   /**
    * Creates an instance of ZCamE2API.
    *
@@ -25,6 +19,28 @@ export class ZCamE2API extends EventEmitter<AtemEvents> {
   constructor(IP) {
     super();
     this.ip = IP;
+    this.ws = new WebSocket(`ws://${this.ip}:81/`);
+    this.ws.addEventListener("open", (event) => {
+      this._checkSession();
+    });
+    this.ws.addEventListener("message", (event) => {
+      const data = JSON.parse(event.data);
+    });
+    this.ws.addEventListener("error", (event) => {
+      console.log("Message from server ", event);
+    });
+  }
+  /**
+   * Checks if session is available.
+   *
+   * @private
+   * @memberof ZCamE2API
+   */
+  private async _checkSession() {
+    const result = await getBent(`http://${this.ip}/ctrl/session`);
+    if (result.status == 409) {
+      this.emit("error", "Session is unavailable");
+    }
   }
   /**
    * You can use this command as 'ping' to see if the camera is OK.
@@ -32,33 +48,29 @@ export class ZCamE2API extends EventEmitter<AtemEvents> {
    * @returns {Promise<ZCamE2>}
    * @memberof ZCamE2API
    */
-  public async getInfo(): Promise<ZCamE2> {
-    const result = await getBent(`http://${this.ip}/info`);
-    const resultJSON = JSON.parse(result);
-    const zCam: ZCamE2 = {
-      model: resultJSON.model,
-      number: Number(resultJSON.number),
-      sw: resultJSON.sw,
-      hw: resultJSON.hw,
-      mac: resultJSON.mac,
-      eth_ip: resultJSON.eth_ip,
-      sn: resultJSON.sn,
-      ble: resultJSON.ble,
-      bt_mac: resultJSON.bt_mac,
-    };
-    return zCam;
+  public async getInfo(): Promise<any> {
+    await getBent(`http://${this.ip}/ctrl/set?focus=MF`);
+    const result = await getBent(`http://${this.ip}/ctrl/set?focus=MF`);
+    if (result.status == 409) {
+      this.emit("error", "Session is unavailable");
+      return await result.text();
+    }
+    return await result.json();
   }
-  /**
-   * Only one client can control the camera at the same time.
-   *
-   * You can try to get the session in the following interface, status code 409 means that you are failed to get the session.
-   *
-   * @returns {Promise<ZCamE2>}
-   * @memberof ZCamE2API
-   */
-  public async getSession(): Promise<any> {
-    const result = await getBent(`http://${this.ip}/ctrl/session`);
-
-    return result;
+  public async getFocusState():Promise<any> {
+    const result =
+    focus: Enum.Focus;
+    af_mode: Enum.AfMode;
+    mf_drive: Enum.MfDrive;
+    ois_mode: Enum.OisMode;
+    af_lock: Enum.AfLock;
+    lens_zoom_pos: Range;
+    lens_focus_pos: Range;
+    lens_focus_spd: Range;
+    caf: Enum.ContinuosAf;
+    caf_sens: Enum.ContinuosAfSensitivity;
+    live_caf: Enum.LiveContinuosAf;
+    mf_mag: Enum.MfMagnify;
+    restore_lens_pos: Enum.RestoreLensPosition;
   }
 }

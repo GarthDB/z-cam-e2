@@ -19,10 +19,12 @@
   "author": "Garth Braithwaite <garthdb@gmail.com> (http://garthdb.com)",
   "license": "Apache-2.0",
   "dependencies": {
-    "bent": "^7.3.2"
+    "isomorphic-ws": "^4.0.1",
+    "ws": "^7.3.0"
   },
   "devDependencies": {
     "@types/ip": "^1.1.0",
+    "bent": "^7.3.2",
     "eventemitter3": "^4.0.4",
     "nock": "^12.0.3",
     "nock-record": "^0.3.6",
