@@ -1,0 +1,35 @@
+[
+    {
+        "scope": "http://192.168.86.79:80",
+        "method": "GET",
+        "path": "/ctrl/get?k=focus",
+        "body": "",
+        "status": 200,
+        "response": {
+            "code": 0,
+            "desc": "string",
+            "key": "focus",
+            "type": 1,
+            "ro": 0,
+            "value": "MF",
+            "opts": [
+                "MF",
+                "AF"
+            ],
+            "all": []
+        },
+        "rawHeaders": [
+            "Content-Length",
+            "97",
+            "Cache-Control",
+            "no-cache, no-store, max-age=0, must-revalidate",
+            "Content-Type",
+            "application/json; charset=utf-8",
+            "Access-Control-Allow-Origin",
+            "*",
+            "Connection",
+            "close"
+        ],
+        "responseIsBinary": false
+    }
+]

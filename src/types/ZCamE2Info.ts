@@ -1,6 +1,6 @@
 import { SubnetInfo } from "ip";
 
-export class ZCamE2 {
+export class ZCamE2Info {
   model: string;
   number: number;
   sw: string;

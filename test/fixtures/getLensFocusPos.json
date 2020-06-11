@@ -1,0 +1,33 @@
+[
+    {
+        "scope": "http://192.168.86.79:80",
+        "method": "GET",
+        "path": "/ctrl/get?k=lens_focus_pos",
+        "body": "",
+        "status": 200,
+        "response": {
+            "code": 0,
+            "desc": "string",
+            "key": "lens_focus_pos",
+            "type": 2,
+            "ro": 0,
+            "value": 3562,
+            "min": 0,
+            "max": 16309,
+            "step": 1
+        },
+        "rawHeaders": [
+            "Content-Length",
+            "107",
+            "Cache-Control",
+            "no-cache, no-store, max-age=0, must-revalidate",
+            "Content-Type",
+            "application/json; charset=utf-8",
+            "Access-Control-Allow-Origin",
+            "*",
+            "Connection",
+            "close"
+        ],
+        "responseIsBinary": false
+    }
+]

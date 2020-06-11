@@ -1,0 +1,27 @@
+[
+    {
+        "scope": "http://192.168.86.79:80",
+        "method": "GET",
+        "path": "/ctrl/get?k=poop",
+        "body": "",
+        "status": 200,
+        "response": {
+            "code": -1,
+            "desc": "Key is not supported",
+            "msg": ""
+        },
+        "rawHeaders": [
+            "Content-Length",
+            "50",
+            "Cache-Control",
+            "no-cache, no-store, max-age=0, must-revalidate",
+            "Content-Type",
+            "application/json; charset=utf-8",
+            "Access-Control-Allow-Origin",
+            "*",
+            "Connection",
+            "close"
+        ],
+        "responseIsBinary": false
+    }
+]
