@@ -1,0 +1,124 @@
+repo_name: GarthDB/z-cam-e2
+report_id: 51eaf4ed57e9f0dec5c47e5e1ea3406a
+version: 0.1
+repo_type: Public
+timestamp: '2024-01-11T00:07:48+00:00'
+requested_by: GarthDB
+provider: github
+branch: master
+detected_tools_count: 9
+tools:
+- name: JavaScript
+  description: Lightweight, interpreted, object-oriented language with first-class
+    functions
+  website_url: https://developer.mozilla.org/en-US/docs/Web/JavaScript
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/1209/javascript.jpeg
+  detection_source_url: https://github.com/GarthDB/z-cam-e2
+  detection_source: Repo Metadata
+- name: TypeScript
+  description: A superset of JavaScript that compiles to clean JavaScript output
+  website_url: http://www.typescriptlang.org
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/1612/bynNY5dJ.jpg
+  detection_source_url: https://github.com/GarthDB/z-cam-e2
+  detection_source: Repo Metadata
+- name: ws
+  description: A Node.js WebSocket library
+  website_url: https://github.com/websockets/ws
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Application Hosting
+  sub_category: Realtime Backend / API
+  image_url: https://img.stackshare.io/service/11381/no-img-open-source.png
+  detection_source_url: https://github.com/GarthDB/z-cam-e2/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: garthdb
+  last_updated_on: 2020-04-21 17:33:09.000000000 Z
+- name: Git
+  description: Fast, scalable, distributed revision control system
+  website_url: http://git-scm.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Version Control System
+  image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/GarthDB/z-cam-e2
+  detection_source: Repo Metadata
+- name: Prettier
+  description: 'Prettier is an opinionated code formatter. '
+  website_url: https://prettier.io/
+  version: 2.0.5
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Code Review
+  image_url: https://img.stackshare.io/service/7035/default_66f265943abed56bcdbfca1c866a4261b1fbb063.jpg
+  detection_source_url: https://github.com/GarthDB/z-cam-e2/blob/master/package-lock.json
+  detection_source: package.json
+  last_updated_by: garthdb
+  last_updated_on: 2020-04-21 17:33:09.000000000 Z
+- name: npm
+  description: The package manager for JavaScript.
+  website_url: https://www.npmjs.com/
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Front End Package Manager
+  image_url: https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png
+  detection_source_url: https://github.com/GarthDB/z-cam-e2/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: garthdb
+  last_updated_on: 2020-04-21 17:33:09.000000000 Z
+- name: eventemitter3
+  description: EventEmitter3 focuses on performance while maintaining a Node.js AND
+    browser compatible interface
+  package_url: https://www.npmjs.com/eventemitter3
+  version: 4.0.4
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16574/default_7be6bee773ad8b04cf2fb7e9ff82f5d7ba648dfd.png
+  detection_source_url: https://github.com/GarthDB/z-cam-e2/blob/master/package-lock.json
+  detection_source: package.json
+  last_updated_by: Garth Braithwaite
+  last_updated_on: 2020-06-08 16:05:57.000000000 Z
+- name: nock
+  description: HTTP server mocking and expectations library for Node.js
+  package_url: https://www.npmjs.com/nock
+  version: 12.0.3
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16036/default_5fd43aeff4d6a935abc13737de01a0355210499d.png
+  detection_source_url: https://github.com/GarthDB/z-cam-e2/blob/master/package-lock.json
+  detection_source: package.json
+  last_updated_by: garthdb
+  last_updated_on: 2020-04-21 17:33:09.000000000 Z
+- name: tap
+  description: A Test-Anything-Protocol library for JavaScript
+  package_url: https://www.npmjs.com/tap
+  version: 14.10.7
+  license: ISC
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16027/default_af9df0bc9fa88191d2fe609204c5bd7599c1a797.png
+  detection_source_url: https://github.com/GarthDB/z-cam-e2/blob/master/package-lock.json
+  detection_source: package.json
+  last_updated_by: garthdb
+  last_updated_on: 2020-04-21 17:33:09.000000000 Z
